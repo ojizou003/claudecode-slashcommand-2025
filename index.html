@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スラッシュコマンドガイド</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">スラッシュコマンドガイド</h1>
+            <p class="subtitle">Claude Codeで利用可能なスラッシュコマンドを機能カテゴリ別に整理した統合ガイドです。SCコマンドとKiroコマンドの機能重複を明確にし、適切な使用シーンを提供します。</p>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2>機能カテゴリ別コマンド一覧</h2>
+
+                <section class="category">
+                    <h3>1. 設計・アーキテクチャ</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>コマンド</th>
+                                    <th>タイプ</th>
+                                    <th>説明</th>
+                                    <th>主な使用シーン</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>/sc:design</code></td>
+                                    <td>SC</td>
+                                    <td>包括的な仕様によるシステムアーキテクチャ、API、コンポーネントインターフェースの設計</td>
+                                    <td>汎用的なシステム設計、API設計</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/kiro:spec-design</code></td>
+                                    <td>Kiro</td>
+                                    <td>対話型の技術デザインレビュープロセス</td>
+                                    <td>仕様駆動開発の設計フェーズ</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/kiro:validate-design</code></td>
+                                    <td>Kiro</td>
+                                    <td>対話型の技術デザイン品質レビューと検証</td>
+                                    <td>設計品質の検証と改善</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note">
+                        <strong>🔄 重複機能:</strong> 設計支援
+                        <ul>
+                            <li><strong>SC:</strong> 汎用的な設計、即時実行</li>
+                            <li><strong>Kiro:</strong> 仕様駆動、対話型承認プロセス</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="category">
+                    <h3>2. 要件定義・発見</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>コマンド</th>
+                                    <th>タイプ</th>
+                                    <th>説明</th>
+                                    <th>主な使用シーン</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>/sc:brainstorm</code></td>
+                                    <td>SC</td>
+                                    <td>ソクラテス式対話と体系的な探索による対話型要件発見</td>
+                                    <td>汎用的な要件発見、アイデア出し</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/kiro:spec-init</code></td>
+                                    <td>Kiro</td>
+                                    <td>詳細なプロジェクト説明と要件で新しい仕様を初期化</td>
+                                    <td>新機能の仕様開始</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/kiro:spec-requirements</code></td>
+                                    <td>Kiro</td>
+                                    <td>仕様のための包括的な要件ドキュメントを生成</td>
+                                    <td>仕様駆動開発の要件定義</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note">
+                        <strong>🔄 重複機能:</strong> 要件発見・定義
+                        <ul>
+                            <li><strong>SC:</strong> 軽量な要件発見、ブレインストーミング</li>
+                            <li><strong>Kiro:</strong> 体系的な要件管理、仕様ドキュメント化</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="category">
+                    <h3>3. タスク管理・実行</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>コマンド</th>
+                                    <th>タイプ</th>
+                                    <th>説明</th>
+                                    <th>主な使用シーン</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>/sc:task</code></td>
+                                    <td>SC</td>
+                                    <td>インテリジェントなワークフロー管理と委任による複雑タスクの実行</td>
+                                    <td>汎用的なタスク管理</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:workflow</code></td>
+                                    <td>SC</td>
+                                    <td>PRDや機能要件からの構造化された実行ワークフローの生成</td>
+                                    <td>ワークフローの自動生成</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/kiro:spec-tasks</code></td>
+                                    <td>Kiro</td>
+                                    <td>実装タスクの生成と計画作成（対話型承認）</td>
+                                    <td>仕様駆動開発のタスク計画</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/kiro:spec-impl</code></td>
+                                    <td>Kiro</td>
+                                    <td>TDD方法論を使用した仕様タスクの実行</td>
+                                    <td>テスト駆動開発の実装</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note">
+                        <strong>🔄 重複機能:</strong> タスク管理と実行
+                        <ul>
+                            <li><strong>SC:</strong> 柔軟なタスク管理、即時実行</li>
+                            <li><strong>Kiro:</strong> 仕様連動、構造化された承認プロセス</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="category">
+                    <h3>4. 分析・品質管理</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>コマンド</th>
+                                    <th>タイプ</th>
+                                    <th>説明</th>
+                                    <th>主な使用シーン</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>/sc:analyze</code></td>
+                                    <td>SC</td>
+                                    <td>品質、セキュリティ、パフォーマンス、アーキテクチャの包括的分析</td>
+                                    <td>コード品質分析</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:cleanup</code></td>
+                                    <td>SC</td>
+                                    <td>デッドコードのシステム的なクリーンアップとプロジェクト構造の最適化</td>
+                                    <td>コードクリーンアップ</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:improve</code></td>
+                                    <td>SC</td>
+                                    <td>コード品質、パフォーマンス、保守性への体系的な改善</td>
+                                    <td>コード改善提案</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/kiro:validate-gap</code></td>
+                                    <td>Kiro</td>
+                                    <td>要件と既存コードベース間の実装ギャップを分析</td>
+                                    <td>仕様との整合性確認</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note">
+                        <strong>🔄 重複機能:</strong> 分析・検証
+                        <ul>
+                            <li><strong>SC:</strong> 汎用的なコード分析と改善</li>
+                            <li><strong>Kiro:</strong> 仕様とのギャップ分析</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="category">
+                    <h3>5. 進捗管理・追跡</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>コマンド</th>
+                                    <th>タイプ</th>
+                                    <th>説明</th>
+                                    <th>主な使用シーン</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>/sc:reflect</code></td>
+                                    <td>SC</td>
+                                    <td>Serena MCP分析機能によるタスクの反映と検証</td>
+                                    <td>タスク完了時の振り返り</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/kiro:spec-status</code></td>
+                                    <td>Kiro</td>
+                                    <td>仕様の現在の進捗とフェーズの確認</td>
+                                    <td>仕様駆動開発の進捗確認</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note">
+                        <strong>🔄 重複機能:</strong> 進捗追跡
+                        <ul>
+                            <li><strong>SC:</strong> タスクレベルの振り返り</li>
+                            <li><strong>Kiro:</strong> 仕様レベルの進捗管理</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="category">
+                    <h3>6. 文書化・ナレッジ管理</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>コマンド</th>
+                                    <th>タイプ</th>
+                                    <th>説明</th>
+                                    <th>主な使用シーン</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>/sc:document</code></td>
+                                    <td>SC</td>
+                                    <td>コンポーネント、関数、API、機能に焦点を絞ったドキュメント生成</td>
+                                    <td>APIドキュメント、技術ドキュメント</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:index</code></td>
+                                    <td>SC</td>
+                                    <td>インテリジェントな組織による包括的なプロジェクトドキュメント生成</td>
+                                    <td>プロジェクト全体のドキュメント化</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/kiro:steering</code></td>
+                                    <td>Kiro</td>
+                                    <td>プロジェクトのステアリングドキュメントをインテリジェントに作成・更新</td>
+                                    <td>プロジェクトガイドライン作成</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/kiro:steering-custom</code></td>
+                                    <td>Kiro</td>
+                                    <td>特化したコンテキスト用のカスタムステアリングドキュメントを作成</td>
+                                    <td>カスタムガイドライン作成</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note">
+                        <strong>🔄 重複機能:</strong> 文書化
+                        <ul>
+                            <li><strong>SC:</strong> 技術ドキュメントの自動生成</li>
+                            <li><strong>Kiro:</strong> プロジェクトガイドラインの管理</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="category">
+                    <h3>7. セッション管理</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>コマンド</th>
+                                    <th>タイプ</th>
+                                    <th>説明</th>
+                                    <th>主な使用シーン</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>/sc:save</code></td>
+                                    <td>SC</td>
+                                    <td>セッションのライフサイクル管理。Serena MCP統合によるセッションコンテキストの永続化</td>
+                                    <td>セッションの保存</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:load</code></td>
+                                    <td>SC</td>
+                                    <td>Serena MCP統合によるセッションライフサイクル管理用のプロジェクトコンテキスト読み込み</td>
+                                    <td>セッションの復元</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="note">
+                        <strong>専用機能:</strong> 重複なし
+                    </div>
+                </section>
+
+                <section class="category">
+                    <h3>8. その他の重要機能</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>コマンド</th>
+                                    <th>タイプ</th>
+                                    <th>説明</th>
+                                    <th>主な使用シーン</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>/sc:implement</code></td>
+                                    <td>SC</td>
+                                    <td>インテリジェントなペルソナアクティベーションとMCP統合による機能・コード実装</td>
+                                    <td>機能実装</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:test</code></td>
+                                    <td>SC</td>
+                                    <td>カバレッジ分析と自動品質レポートを伴うテスト実行</td>
+                                    <td>テスト実行</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:build</code></td>
+                                    <td>SC</td>
+                                    <td>ビルド、コンパイル、プロジェクトのパッケージ化をインテリジェントなエラー処理で実行</td>
+                                    <td>ビルド実行</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:estimate</code></td>
+                                    <td>SC</td>
+                                    <td>タスク、機能、プロジェクトの開発見積もりをインテリジェント分析で提供</td>
+                                    <td>見積もり</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:git</code></td>
+                                    <td>SC</td>
+                                    <td>インテリジェントなコミットメッセージとワークフロー最適化によるGit操作</td>
+                                    <td>Git操作</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:explain</code></td>
+                                    <td>SC</td>
+                                    <td>コード、概念、システムの動作を教育的な明確さで説明</td>
+                                    <td>コード説明</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:troubleshoot</code></td>
+                                    <td>SC</td>
+                                    <td>コード、ビルド、デプロイメント、システムの動作に関する問題の診断と解決</td>
+                                    <td>トラブルシューティング</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:spawn</code></td>
+                                    <td>SC</td>
+                                    <td>インテリジェントな分解と委任によるメタシステムタスクオーケストレーション</td>
+                                    <td>複雑タスクの分割</td>
+                                </tr>
+                                <tr>
+                                    <td><code>/sc:select-tool</code></td>
+                                    <td>SC</td>
+                                    <td>複雑性スコアリングと操作分析によるインテリジェントなMCPツール選択</td>
+                                    <td>ツール選択支援</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
+
+            <section class="section">
+                <h2>コマンド選択ガイドライン</h2>
+
+                <div class="guideline">
+                    <h3>SCコマンドを選択べき場合</h3>
+                    <ul>
+                        <li><strong>汎用的な開発プロジェクト</strong>を行う場合</li>
+                        <li><strong>既存コードの分析や改善</strong>を行う場合</li>
+                        <li><strong>柔軟なワークフロー</strong>が必要な場合</li>
+                        <li><strong>即時実行</strong>を求める場合</li>
+                        <li><strong>Serena MCPの機能</strong>を活用したい場合</li>
+                    </ul>
+                </div>
+
+                <div class="guideline">
+                    <h3>Kiroコマンドを選択べき場合</h3>
+                    <ul>
+                        <li><strong>新機能の仕様駆動開発</strong>を行う場合</li>
+                        <li><strong>体系的な要件管理</strong>が必要な場合</li>
+                        <li><strong>3フェーズ承認プロセス</strong>（要件→設計→タスク）を重視する場合</li>
+                        <li><strong>対話型レビュー</strong>を行いたい場合</li>
+                        <li><strong>進捗の厳格な管理</strong>が必要な場合</li>
+                    </ul>
+                </div>
+
+                <div class="guideline">
+                    <h3>重複機能の選択基準</h3>
+
+                    <div class="sub-guideline">
+                        <h4>設計機能</h4>
+                        <ul>
+                            <li><strong><code>/sc:design</code></strong>: API設計、システムアーキテクチャ設計など汎用的な設計</li>
+                            <li><strong><code>/kiro:spec-design</code></strong>: 仕様に基づく詳細設計、レビューが必要な場合</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-guideline">
+                        <h4>要件定義</h4>
+                        <ul>
+                            <li><strong><code>/sc:brainstorm</code></strong>: アイデア出し、軽量な要件発見</li>
+                            <li><strong><code>/kiro:spec-init</code> + /kiro:spec-requirements</strong>: 体系的な要件管理、ドキュメント化</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-guideline">
+                        <h4>タスク管理</h4>
+                        <ul>
+                            <li><strong><code>/sc:task</code></strong>: 柔軟なタスク管理、即時実行</li>
+                            <li><strong><code>/kiro:spec-tasks</code></strong>: 仕様に連動した構造化タスク管理</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-guideline">
+                        <h4>分析機能</h4>
+                        <ul>
+                            <li><strong><code>/sc:analyze</code></strong>: コード品質、セキュリティ、パフォーマンス分析</li>
+                            <li><strong><code>/kiro:validate-gap</code></strong>: 仕様との実装ギャップ分析</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>開発ワークフロー別コマンド使用例</h2>
+
+                <div class="workflow">
+                    <h3>1. 汎用的な開発プロジェクト</h3>
+                    <div class="code-block">
+                        <pre><code># プロジェクト開始
+/sc:load
+
+# 要件発見
+/sc:brainstorm
+
+# 設計
+/sc:design
+
+# タスク管理
+/sc:task
+/sc:estimate
+
+# 実装
+/sc:implement
+
+# テスト
+/sc:test
+
+# 進捗確認
+/sc:reflect
+
+# セッション保存
+/sc:save</code></pre>
+                    </div>
+                </div>
+
+                <div class="workflow">
+                    <h3>2. 仕様駆動開発（新機能）</h3>
+                    <div class="code-block">
+                        <pre><code># ステアリング設定（任意）
+/kiro:steering
+
+# 仕様初期化
+/kiro:spec-init [詳細なプロジェクト説明]
+
+# 要件定義
+/kiro:spec-requirements [機能名]
+
+# 設計（対話型承認）
+/kiro:spec-design [機能名]
+
+# タスク計画（対話型承認）
+/kiro:spec-tasks [機能名]
+
+# 進捗確認
+/kiro:spec-status [機能名]
+
+# 実装ギャップ分析
+/kiro:validate-gap [機能名]
+
+# TDD実装
+/kiro:spec-impl [機能名]</code></pre>
+                    </div>
+                </div>
+
+                <div class="workflow">
+                    <h3>3. 既存コードの改善</h3>
+                    <div class="code-block">
+                        <pre><code># 現状分析
+/sc:analyze --focus quality --depth deep
+
+# 改善提案
+/sc:improve
+
+# クリーンアップ
+/sc:cleanup
+
+# ドキュメント生成
+/sc:document
+/sc:index
+
+# テスト
+/sc:test</code></pre>
+                    </div>
+                </div>
+
+                <div class="workflow">
+                    <h3>4. 緊急の修正・トラブルシューティング</h3>
+                    <div class="code-block">
+                        <pre><code># 問題診断
+/sc:troubleshoot
+
+# コード説明
+/sc:explain
+
+# 修正実装
+/sc:implement
+
+# テスト
+/sc:test</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>ベストプラクティス</h2>
+
+                <div class="guideline">
+                    <h3>プロジェクト開始時</h3>
+                    <ol>
+                        <li><strong><code>/sc:load</code></strong> でプロジェクトコンテキストを読み込み</li>
+                        <li><strong><code>/kiro:steering</code></strong> でプロジェクトガイドラインを作成（任意）</li>
+                        <li><strong><code>/sc:brainstorm</code></strong> または <strong><code>/kiro:spec-init</code></strong> で要件を整理</li>
+                    </ol>
+                </div>
+
+                <div class="guideline">
+                    <h3>開発中</h3>
+                    <ol>
+                        <li>定期的に <strong><code>/sc:save</code></strong> でセッションを保存</li>
+                        <li><strong><code>/sc:reflect</code></strong> または <strong><code>/kiro:spec-status</code></strong> で進捗を確認</li>
+                        <li>品質確認は <strong><code>/sc:analyze</code></strong> を実施</li>
+                    </ol>
+                </div>
+
+                <div class="guideline">
+                    <h3>コマンドの組み合わせ</h3>
+                    <ul>
+                        <li><strong>要件発見</strong>: <code>/sc:brainstorm</code> → <code>/kiro:spec-init</code> → <code>/kiro:spec-requirements</code></li>
+                        <li><strong>設計</strong>: <code>/sc:design</code> → <code>/kiro:spec-design</code> → <code>/kiro:validate-design</code></li>
+                        <li><strong>実装</strong>: <code>/sc:task</code> → <code>/kiro:spec-tasks</code> → <code>/sc:implement</code> → <code>/kiro:spec-impl</code></li>
+                        <li><strong>品質保証</strong>: <code>/sc:analyze</code> → <code>/kiro:validate-gap</code> → <code>/sc:test</code> → <code>/sc:improve</code></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>依存関係と注意事項</h2>
+
+                <div class="guideline">
+                    <h3>共通の依存関係</h3>
+                    <ul>
+                        <li>プロジェクトルートでの実行を推奨</li>
+                        <li>一部のコマンドはアクティブなプロジェクトが必要</li>
+                    </ul>
+                </div>
+
+                <div class="guideline">
+                    <h3>SCコマンド特有の依存関係</h3>
+                    <ul>
+                        <li>Serena MCPサーバー</li>
+                        <li>プロジェクトのアクティベーション</li>
+                        <li>セッションコンテキスト</li>
+                    </ul>
+                </div>
+
+                <div class="guideline">
+                    <h3>Kiroコマンド特有の依存関係</h3>
+                    <ul>
+                        <li>Gitリポジトリ（推奨）</li>
+                        <li>対話型確認プロセス</li>
+                        <li>3フェーズ承認ワークフロー</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>トラブルシューティング</h2>
+
+                <div class="guideline">
+                    <h3>コマンドが見つからない場合</h3>
+                    <ol>
+                        <li>プロジェクトルートで実行しているか確認</li>
+                        <li>MCPサーバーが有効か確認</li>
+                        <li>プロジェクトがアクティブか確認</li>
+                    </ol>
+                </div>
+
+                <div class="guideline">
+                    <h3>対話型プロセスが中断された場合</h3>
+                    <ol>
+                        <li><code>/kiro:spec-status</code> で現在の状態を確認</li>
+                        <li>必要に応じて前のフェーズから再開</li>
+                    </ol>
+                </div>
+
+                <div class="guideline">
+                    <h3>セッションが失われた場合</h3>
+                    <ol>
+                        <li><code>/sc:load</code> で最後のセッションを復元</li>
+                        <li><code>/kiro:spec-status</code> で仕様の進捗を確認</li>
+                    </ol>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; おぢぞう Lab. 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
